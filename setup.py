@@ -1,12 +1,15 @@
 from setuptools import setup, find_packages
-from os import path
+from pathlib import Path
 
-this_directory = path.abspath(path.dirname(__file__))
+this_directory = Path(__file__).parent
+README = (this_directory/ "readme.md").read_text()
 
 setup(
     name="bayesian_classifier",
     version="1.0.0",
     description='Python library for training and testing Bayesian classifiers',
+    long_description_content_type="text/markdown",
+    long_description=README,
     classifiers=[],
     keywords=['bayesian', 'classifier'],
     url='https://github.com/mathbarc/bayesian-classifier',

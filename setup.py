@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 from pathlib import Path
 
 this_directory = Path(__file__).parent
-README = (this_directory/ "readme.md").read_text()
+README = (this_directory/ "README.md").read_text()
 
 setup(
     name="bayesian_classifier",

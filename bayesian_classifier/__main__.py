@@ -23,7 +23,7 @@ def train_naive_bayes(dataset, sep, output):
     classifier = NaiveBayes()
     classifier.fit(dataset.dataset, dataset.labels)
     classifier.save(output)
-
+    
 @naive_bayes_group.command(name="test")
 @click.argument("model",nargs=1, type=str)
 @click.argument("dataset",nargs=1, type=str)

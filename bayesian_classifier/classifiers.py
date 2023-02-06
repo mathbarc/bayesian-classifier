@@ -255,7 +255,7 @@ class NaiveBayes(Classifier):
 if __name__=="__main__":
 
     from dataset import CSVDataset
-    dataset = CSVDataset("resource/iristrain1.txt")
+    dataset = CSVDataset("resource/iris.txt.shuffled")
     
     classifier = FullBayes()
     classifier.fit(dataset.dataset, dataset.labels)
@@ -266,6 +266,8 @@ if __name__=="__main__":
 
     correct = 0
     total = 0
+
+    dataset = CSVDataset("resource/iristest3.txt")
 
     for i in range(0,len(dataset.labels)):
         label = dataset.labels[i]

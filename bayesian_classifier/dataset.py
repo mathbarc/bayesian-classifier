@@ -15,6 +15,10 @@ class CSVDataset:
                 self._data.append([])
                 self._data[len(self._data)-1].append(point)
         
+        for i in range(0,len(self._data)):
+            self._data[i] = numpy.array(self._data[i])
+
+        
         datafile.close()
     
     @staticmethod
@@ -38,4 +42,6 @@ class CSVDataset:
 if __name__=="__main__":
     dataset = CSVDataset("resource/iristrain1.txt")
     print(numpy.mean(dataset.dataset[0],axis=0))
-    print(numpy.var(dataset.dataset[0],axis=0))
+    cov = numpy.cov(numpy.array(dataset.dataset[0]).T)
+    print(cov)
+    ...

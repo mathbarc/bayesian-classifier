@@ -2,6 +2,8 @@ import click
 import os
 from .dataset import CSVDataset
 from .classifiers import NaiveBayes, FullBayes
+from .evaluate import evaluate_model_performance
+
 
 @click.group()
 def cli():
@@ -39,17 +41,7 @@ def test_naive_bayes(model, dataset, sep):
         raise Exception(f"File {dataset} not found")
 
     dataset = CSVDataset(dataset, sep)
-    correct=0
-    total=0
-    for i in range(0,len(dataset.labels)):
-        label = dataset.labels[i]
-        for sample in dataset.dataset[i]:
-            label_pred = classifier.classify(sample)
-            if label == label_pred:
-                correct+=1
-            total+=1
-    
-    print("Accuracy: {}".format(correct/total))
+    evaluate_model_performance(dataset, classifier)
 
 
 @cli.group("full_bayes")
@@ -84,17 +76,7 @@ def test_full_bayes(model, dataset, sep):
         raise Exception(f"File {dataset} not found")
 
     dataset = CSVDataset(dataset, sep)
-    correct=0
-    total=0
-    for i in range(0,len(dataset.labels)):
-        label = dataset.labels[i]
-        for sample in dataset.dataset[i]:
-            label_pred = classifier.classify(sample)
-            if label == label_pred:
-                correct+=1
-            total+=1
-    
-    print("Accuracy: {}".format(correct/total))
+    evaluate_model_performance(dataset, classifier)
 
 
 if __name__=="__main__":

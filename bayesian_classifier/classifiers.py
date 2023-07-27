@@ -1,8 +1,6 @@
 import abc
 import numpy
 
-
-
 class Classifier(abc.ABC):
     def __init__(self):
         pass

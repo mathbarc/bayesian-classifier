@@ -1,6 +1,13 @@
-In this file there are two kinds of program, Trainer and Classifier. 
-To execute a Trainer its necessary to pass arguments as follows:
-Trainer.py -d input_data_file_name -m output_model_file_name
+# Bayesian Classifier
 
-To execute a Classifier its necessary to pass arguments as follows:
-Classifier.py -t input_test_data_set -m input_model_file_name
+The bayesian classifier utilizes Bayes Theorem to implement a categorical classifier. The current package contains classes that implement both Full Bayes classifier and Naïve Bayes Classifier, providing a CLI interface as well.
+
+## Runing Bayes Classifier on your data
+
+```bash
+bayesian_classifier full_bayes train resource/iristrain3.txt --sep ","
+```
+
+```bash
+bayesian_classifier full_bayes test full_bayes.model resource/iristest3.txt
+```

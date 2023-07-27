@@ -2,3 +2,4 @@
 **.model
 **/build
 **/bayesian_classifier.egg-info
+**/dist
